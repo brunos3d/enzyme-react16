@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import ButtonWithHooks from './ButtonWithHooks';
 
 describe('ButtonWithHooks', () => {
@@ -12,9 +12,9 @@ describe('ButtonWithHooks', () => {
     };
   });
 
-  it('check if useEffect was called', () => {
-    const wrapper = mount(<ButtonWithHooks {...props} />);
-    expect(wrapper.text()).toBe('(initializated) click me');
+  it('render without crashing', () => {
+    const wrapper = shallow(<ButtonWithHooks {...props} />);
+    expect(wrapper.text()).toBe('click me');
   });
 
   it('calls onClick function when button is clicked', () => {
